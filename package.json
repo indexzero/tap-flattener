@@ -4,6 +4,7 @@
   "description": "Flattens tap output including subtests into a single level hierarchy",
   "main": "index.js",
   "scripts": {
+    "lint": "xo --fix index.js bin/flatten.js test/index.test.js",
     "test": "tap test/*.test.js --coverage"
   },
   "repository": {
@@ -21,8 +22,12 @@
   "bugs": {
     "url": "https://github.com/indexzero/tap-flattener/issues"
   },
+  "xo": {
+    "space": true
+  },
   "devDependencies": {
-    "tap": "^10.7.2"
+    "tap": "^10.7.2",
+    "xo": "^0.18.2"
   },
   "dependencies": {
     "diagnostics": "^1.1.0",
