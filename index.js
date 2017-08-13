@@ -70,7 +70,7 @@ class Flattener extends Minipass {
     // source to the tap-parser instance so that we
     // may get the appropriate events.
     //
-    this.on('pipe', (src) => {
+    this.on('pipe', src => {
       src.pipe(this.parser);
     });
   }
@@ -133,7 +133,7 @@ class Flattener extends Minipass {
   onChild(child) {
     let parentTest;
 
-    child.once('comment', (comment) => {
+    child.once('comment', comment => {
       parentTest = comment.replace(isSubtest, '').trim();
 
       //
@@ -142,15 +142,23 @@ class Flattener extends Minipass {
       child.on('comment', this.emit.bind(this, 'comment'));
     });
 
-    child.on('assert', (assert) => {
+    child.on('assert', assert => {
       const hoisted = {
         name: [parentTest, assert.name].filter(Boolean).join(' '),
         ok: assert.ok
       };
 
-      if (assert.todo) hoisted.todo = assert.todo;
-      if (assert.skip) hoisted.skip = assert.skip;
-      if (assert.diag) hoisted.diag = assert.diag;
+      if (assert.todo) {
+        hoisted.todo = assert.todo;
+      }
+
+      if (assert.skip) {
+        hoisted.skip = assert.skip;
+      }
+
+      if (assert.diag) {
+        hoisted.diag = assert.diag;
+      }
 
       this.record(hoisted);
     });
@@ -160,9 +168,9 @@ class Flattener extends Minipass {
     // next `assert` from the parent parser should be ignored since
     // all child subtests are now hoisted to the outer scope.
     //
-    child.on('complete', (result) => {
+    child.on('complete', () => {
       this.ignoreNextAssert = true;
-    })
+    });
   }
 
   /**

@@ -4,7 +4,7 @@ const yaml = require('js-yaml');
 const Flattener = require('../');
 
 const flat = new Flattener()
-  .on('version', (version) => {
+  .on('version', version => {
     console.log(`TAP version ${version}`);
   })
   .on('assert', res => {
@@ -23,22 +23,22 @@ const flat = new Flattener()
       (res.diag ?
          '  ---\n  ' +
          yaml.safeDump(res.diag).split('\n').join('\n  ').trim() +
-         '\n  ...\n'
-         : '');
+         '\n  ...\n' :
+         '');
 
     process.stdout.write(line);
   })
   .on('plan', plan => {
     console.log(`${plan.start}..${plan.end}`);
   })
-  .on('bailout', (reason) => {
+  .on('bailout', reason => {
     console.log(`Bail out!${reason}`);
   })
   .on('comment', process.stdout.write.bind(process.stdout))
   .on('extra', process.stdout.write.bind(process.stdout));
 
 process.stdin.pipe(flat);
-process.on('exit', function () {
+process.on('exit', () => {
   if (!flat.ok) {
     process.exit(1);
   }
