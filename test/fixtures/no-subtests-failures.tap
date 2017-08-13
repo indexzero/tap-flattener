@@ -1,0 +1,56 @@
+TAP version 13
+# Subtest: addition
+    ok 1 - 1 + 2 = 3
+    not ok 2 - 5 + 5 = 15
+      ---
+      found: 15
+      wanted: 10
+      compare: ===
+      at:
+        line: 5
+        column: 5
+        file: test/fixtures/subtests-failures.js
+        type: Test
+        function: test
+      stack: |
+        Test.test (test/fixtures/subtests-failures.js:5:5)
+        Object.<anonymous> (test/fixtures/subtests-failures.js:3:1)
+      source: |
+        t.equal(15, 5 + 5, '5 + 5 = 15'); // assumed failure
+      ...
+    
+    ok 3 - 1 + 0 = 1
+    ok 4 - 1 + -1 = 0
+    1..4
+    # failed 1 of 4 tests
+not ok 1 - addition # time=19.622ms
+
+# Subtest: multiplication
+    ok 1 - 10 * 0 = 0
+    ok 2 - 10 * 1 = 10
+    not ok 3 - 10 * 10 = 110
+      ---
+      found: 110
+      wanted: 100
+      compare: ===
+      at:
+        line: 15
+        column: 5
+        file: test/fixtures/subtests-failures.js
+        type: Test
+        function: test
+      stack: |
+        Test.test (test/fixtures/subtests-failures.js:15:5)
+        Object.<anonymous> (test/fixtures/subtests-failures.js:12:1)
+      source: |
+        t.equal(110, 10 * 10, '10 * 10 = 110'); // assumed failure
+      ...
+    
+    ok 4 - 10 * 0.5 = 5
+    1..4
+    # failed 1 of 4 tests
+not ok 2 - multiplication # time=7.759ms
+
+1..2
+# failed 2 of 2 tests
+# time=40.886ms
