@@ -5,7 +5,7 @@ TAP version 13
     ok 3 - 1 + 0 = 1
     ok 4 - 1 + -1 = 0
     1..4
-ok 1 - addition # time=5.212ms
+ok 1 - addition # time=4.511ms
 
 # Subtest: multiplication
     ok 1 - 10 * 0 = 0
@@ -13,7 +13,7 @@ ok 1 - addition # time=5.212ms
     ok 3 - 10 * 10 = 100
     ok 4 - 10 * 0.5 = 5
     1..4
-ok 2 - multiplication # time=2.807ms
+ok 2 - multiplication # time=1.968ms
 
 1..2
-# time=18.862ms
+# time=14.141ms
