@@ -1,0 +1,43 @@
+TAP version 13
+# Subtest: addition 1 + 2 = 3
+    ok 1 - should be equal
+    1..1
+ok 1 - addition 1 + 2 = 3 # time=5.251ms
+
+# Subtest: addition 5 + 5 = 10
+    ok 1 - should be equal
+    1..1
+ok 2 - addition 5 + 5 = 10 # time=0.804ms
+
+# Subtest: addition 1 + 0 = 1
+    ok 1 - should be equal
+    1..1
+ok 3 - addition 1 + 0 = 1 # time=0.47ms
+
+# Subtest: addition 1 + -1 = 0
+    ok 1 - should be equal
+    1..1
+ok 4 - addition 1 + -1 = 0 # time=0.348ms
+
+# Subtest: multiplication 10 * 0 = 0
+    ok 1 - should be equal
+    1..1
+ok 5 - multiplication 10 * 0 = 0 # time=0.295ms
+
+# Subtest: multiplication 10 * 1 = 10
+    ok 1 - should be equal
+    1..1
+ok 6 - multiplication 10 * 1 = 10 # time=0.298ms
+
+# Subtest: multiplication 10 * 10 = 100
+    ok 1 - should be equal
+    1..1
+ok 7 - multiplication 10 * 10 = 100 # time=0.741ms
+
+# Subtest: multiplication 10 * 0.5 = 5
+    ok 1 - should be equal
+    1..1
+ok 8 - multiplication 10 * 0.5 = 5 # time=0.355ms
+
+1..8
+# time=28.417ms

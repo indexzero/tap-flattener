@@ -1,0 +1,19 @@
+TAP version 13
+# Subtest: addition
+    ok 1 - 1 + 2 = 3
+    ok 2 - 5 + 5 = 10
+    ok 3 - 1 + 0 = 1
+    ok 4 - 1 + -1 = 0
+    1..4
+ok 1 - addition # time=5.212ms
+
+# Subtest: multiplication
+    ok 1 - 10 * 0 = 0
+    ok 2 - 10 * 1 = 10
+    ok 3 - 10 * 10 = 100
+    ok 4 - 10 * 0.5 = 5
+    1..4
+ok 2 - multiplication # time=2.807ms
+
+1..2
+# time=18.862ms

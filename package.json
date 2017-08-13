@@ -4,7 +4,7 @@
   "description": "Flattens tap output including subtests into a single level hierarchy",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha test.js"
+    "test": "nyc tap test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,8 @@
     "url": "https://github.com/indexzero/tap-flattener/issues"
   },
   "devDependencies": {
-    "assume": "^1.5.1",
-    "mocha": "^3.5.0",
-    "nyc": "^11.1.0"
+    "nyc": "^11.1.0",
+    "tap": "^10.7.2"
   },
   "dependencies": {
     "tap-parser": "^6.0.1"
