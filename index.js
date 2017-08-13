@@ -3,6 +3,11 @@ const Minipass = require('minipass');
 const enabled = require('enabled');
 const debug = require('diagnostics')('tap-flattener');
 
+/**
+ * Regular Expression to match the general
+ * subtest comment syntax output by node-tap
+ * @type {RegExp}
+ */
 const isSubtest = /#\sSubtest:\s/i;
 
 /**
@@ -64,15 +69,22 @@ class Flattener extends Minipass {
         this.parser.on(name, this.onIgnore.bind(this, name));
       }
     }
+  }
 
-    //
-    // When this instance is piped to then pipe that
-    // source to the tap-parser instance so that we
-    // may get the appropriate events.
-    //
-    this.on('pipe', src => {
-      src.pipe(this.parser);
-    });
+  /*
+   * Pass-through any stream write calls to the tap-parser
+   * instance we're handling events from.
+   */
+  write(chunk, encoding, cb) {
+    return this.parser.write(chunk, encoding, cb);
+  }
+
+  /*
+   * Pass-through any stream end calls to the tap-parser
+   * instance we're handling events from.
+   */
+  end(chunk, encoding, cb) {
+    return this.parser.end(chunk, encoding, cb);
   }
 
   record(assert) {
