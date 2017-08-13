@@ -46,7 +46,7 @@ class Flattener extends Minipass {
     };
 
     for (const name of events.immutable) {
-      debug('Pass-through immutable event: ', name);
+      debug('Pass-through immutable event: %s', name);
       this.parser.on(name, this.emit.bind(this, name));
     }
 
@@ -75,6 +75,22 @@ class Flattener extends Minipass {
     });
   }
 
+  record(assert) {
+    this.count += 1;
+    assert.id = ++this.nextId;
+
+    if (assert.ok) {
+      this.pass += 1;
+    } else {
+      this.ok = false;
+      this.fail += 1;
+      this.failures.push(assert);
+    }
+
+    debug('record assert %j', assert);
+    this.emit('assert', assert);
+  }
+
   /**
    * Since not all TAP must have subtests, we only want to ignore those
    * assert events which immediately follow a complete event from a child
@@ -88,7 +104,7 @@ class Flattener extends Minipass {
       return;
     }
 
-    this.emit('assert', assert);
+    this.record(assert);
   }
 
   /**
@@ -128,7 +144,6 @@ class Flattener extends Minipass {
 
     child.on('assert', (assert) => {
       const hoisted = {
-        id: ++this.nextId,
         name: [parentTest, assert.name].filter(Boolean).join(' '),
         ok: assert.ok
       };
@@ -137,16 +152,7 @@ class Flattener extends Minipass {
       if (assert.skip) hoisted.skip = assert.skip;
       if (assert.diag) hoisted.diag = assert.diag;
 
-      this.count += 1;
-      if (hoisted.ok) {
-        this.pass += 1;
-      } else {
-        this.ok = false;
-        this.fail += 1;
-        this.failures.push(hoisted);
-      }
-
-      this.emit('assert', hoisted);
+      this.record(hoisted);
     });
 
     //
