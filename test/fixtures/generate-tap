@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DIRNAME=${0%/*}
-TAP=1 node ./$DIRNAME/no-subtests-failures.js > ./$DIRNAME/no-subtests-failures.tap
+TAP=1 node ./$DIRNAME/one-subtest-failures.js > ./$DIRNAME/one-subtest-failures.tap
 TAP=1 node ./$DIRNAME/subtests-failures.js > ./$DIRNAME/subtests-failures.tap
-TAP=1 node ./$DIRNAME/no-subtests.js > ./$DIRNAME/no-subtests.tap
+TAP=1 node ./$DIRNAME/one-subtest.js > ./$DIRNAME/one-subtest.tap
 TAP=1 node ./$DIRNAME/subtests.js > ./$DIRNAME/subtests.tap

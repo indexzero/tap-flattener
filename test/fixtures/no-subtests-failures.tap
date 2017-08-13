@@ -1,78 +1,43 @@
 TAP version 13
-# Subtest: addition 1 + 2 = 3
-    ok 1 - should be equal
-    1..1
 ok 1 - addition 1 + 2 = 3 # time=3.671ms
-
-# Subtest: addition 5 + 5 = 15
-    not ok 1 - should be equal
-      ---
-      found: 15
-      wanted: 10
-      compare: ===
-      at:
-        line: 10
-        column: 5
-        file: test/fixtures/no-subtests-failures.js
-        type: Test
-        function: test
-      stack: |
-        Test.test (test/fixtures/no-subtests-failures.js:10:5)
-        Object.<anonymous> (test/fixtures/no-subtests-failures.js:9:1)
-      source: |
-        t.equal(15, 5 + 5);
-      ...
-    
-    1..1
-    # failed 1 test
 not ok 2 - addition 5 + 5 = 15 # time=12.338ms
-
-# Subtest: addition 1 + 0 = 1
-    ok 1 - should be equal
-    1..1
+  ---
+  found: 15
+  wanted: 10
+  compare: ===
+  at:
+    line: 10
+    column: 5
+    file: test/fixtures/no-subtests-failures.js
+    type: Test
+    function: test
+  stack: |
+    Test.test (test/fixtures/no-subtests-failures.js:10:5)
+    Object.<anonymous> (test/fixtures/no-subtests-failures.js:9:1)
+  source: |
+    t.equal(15, 5 + 5);
+  ...
 ok 3 - addition 1 + 0 = 1 # time=0.469ms
-
-# Subtest: addition 1 + -1 = 0
-    ok 1 - should be equal
-    1..1
 ok 4 - addition 1 + -1 = 0 # time=0.632ms
-
-# Subtest: multiplication 10 * 0 = 0
-    ok 1 - should be equal
-    1..1
 ok 5 - multiplication 10 * 0 = 0 # time=0.351ms
-
-# Subtest: multiplication 10 * 1 = 10
-    ok 1 - should be equal
-    1..1
 ok 6 - multiplication 10 * 1 = 10 # time=0.326ms
-
-# Subtest: multiplication 10 * 10 = 110
-    not ok 1 - should be equal
-      ---
-      found: 110
-      wanted: 100
-      compare: ===
-      at:
-        line: 36
-        column: 5
-        file: test/fixtures/no-subtests-failures.js
-        type: Test
-        function: test
-      stack: |
-        Test.test (test/fixtures/no-subtests-failures.js:36:5)
-        Object.<anonymous> (test/fixtures/no-subtests-failures.js:35:1)
-      source: |
-        t.equal(110, 10 * 10);
-      ...
-    
-    1..1
-    # failed 1 test
 not ok 7 - multiplication 10 * 10 = 110 # time=4.801ms
-
-# Subtest: multiplication 10 * 0.5 = 5
-    ok 1 - should be equal
-    1..1
+  ---
+  found: 110
+  wanted: 100
+  compare: ===
+  at:
+    line: 36
+    column: 5
+    file: test/fixtures/no-subtests-failures.js
+    type: Test
+    function: test
+  stack: |
+    Test.test (test/fixtures/no-subtests-failures.js:36:5)
+    Object.<anonymous> (test/fixtures/no-subtests-failures.js:35:1)
+  source: |
+    t.equal(110, 10 * 10);
+  ...
 ok 8 - multiplication 10 * 0.5 = 5 # time=1.432ms
 
 1..8
