@@ -1,0 +1,12 @@
+TAP version 13
+ok 1 - addition 1 + 2 = 3 # time=4.124ms
+ok 2 - addition 5 + 5 = 10 # time=0.742ms
+ok 3 - addition 1 + -1 = 0 # time=0.321ms
+ok 4 - multiplication 10 * 0 = 0 # time=0.271ms
+ok 5 - multiplication 10 * 1 = 10 # time=0.271ms
+ok 6 - multiplication 10 * 0.5 = 5 # time=0.294ms
+ok 7 - division # SKIP Too hard
+ok 8 - subtraction # SKIP No time
+1..8
+# skip: 2
+# time=26.101ms
