@@ -37,9 +37,10 @@ const flat = new Flattener()
   .on('comment', process.stdout.write.bind(process.stdout))
   .on('extra', process.stdout.write.bind(process.stdout));
 
-process.stdin.pipe(flat);
 process.on('exit', () => {
   if (!flat.ok) {
     process.exit(1);
   }
 });
+
+process.stdin.pipe(flat);
