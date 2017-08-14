@@ -1,7 +1,7 @@
 {
   "name": "tap-flattener",
-  "version": "1.0.0",
   "description": "Flattens tap output including subtests into a single level hierarchy",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "lint": "xo --fix index.js bin/flatten.js test/index.test.js",
