@@ -1,7 +1,7 @@
 {
   "name": "tap-flattener",
   "description": "Flattens tap output including subtests into a single level hierarchy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "bin": "./bin/flatten.js",
   "scripts": {
